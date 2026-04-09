@@ -1,0 +1,56 @@
+# 타로 개념 그래프 (Concept Graph)
+# 단순 키워드 → 관계형 지식 네트워크
+
+concept_categories:
+  archetypes:  # 원형 (인간 보편적 상징)
+    - the_fool
+    - the_mother
+    - the_father
+    - the_trickster
+    - the_hero
+    - etc...
+  
+  symbols:  # 상징
+    elements:
+      - fire: [wands, passion, creativity, energy]
+      - water: [cups, emotion, intuition, relationship]
+      - air: [swords, intellect, communication, conflict]
+      - earth: [pentacles, material, stability, body]
+    
+    celestial:
+      - sun: [vitality, consciousness, success]
+      - moon: [unconscious, intuition, mystery]
+      - star: [hope, guidance, inspiration]
+    
+    objects:
+      - wand: [will, desire, action]
+      - cup: [emotion, receptivity, love]
+      - sword: [truth, justice, intellect]
+      - pentacle: [wealth, practicality, security]
+  
+  numerology:  # 수비학
+    0: [potential, void, infinite]
+    1: [beginning, individual, manifestation]
+    2: [duality, balance, partnership]
+    3: [creation, expression, growth]
+    # ... 10까지
+  
+  zodiac:  # 점성학 연결
+    aries: [emperor, 4-wands]
+    taurus: [hierophant, 5-pentacles]
+    # ... 전부 연결
+  
+  tree_of_life:  # 카발라
+    kether: [crown, ace-cards]
+    chokmah: [wisdom, 2-cards]
+    # ... 10 sephiroth
+
+# 관계 정의 (관계 유형)
+relationship_types:
+  - contrasts_with:  # 대조되는 카드
+  - complements:     # 보완하는 카드
+  - leads_to:        # 다음 단계
+  - derives_from:    # 이전 단계
+  - shares_element:  # 같은 원소
+  - shares_number:   # 같은 숫자
+  - similar_energy:  # 비슷한 에너지

@@ -1,0 +1,65 @@
+# 타로 마스터 시스템 - 에이전트 마스터 설정
+system_name: PROJECT_TAROT
+version: 1.0.0
+activate_date: 2026-04-09
+
+# === 사용 가능한 에이전트 ===
+agents:
+  tarot-researcher:
+    name: 타로 학습 도우미
+    config: agents/tarot-researcher.yaml
+    trigger_words: ["공부", "학습", "해석", "카드 읽기", "정의", "의미"]
+    
+  content-writer:
+    name: 콘텐츠 작가
+    config: agents/content-writer.yaml
+    trigger_words: ["인스타", "유튜브", "블로그", "글 써줘", "컨텐츠"]
+    
+  book-editor:
+    name: 책 집필 도우미
+    config: agents/book-editor.yaml
+    trigger_words: ["책", "원고", "목차", "집필", "출판"]
+    
+  thread-generator:
+    name: 스레드 생성기
+    config: agents/thread-generator.yaml
+    trigger_words: ["스레드", "트윗", "트위터", "연쇄"]
+    
+  database-manager:
+    name: 데이터베이스 관리자
+    config: agents/database-manager.yaml
+    trigger_words: ["정리", "백업", "통계", "점검", "DB"]
+
+# === 사용법 ===
+# 
+# 1. 단일 에이전트 호출:
+#    @타로학습도우미 오늘 바보 카드 공부했는데 새로운 시작이란 키워드를 얻었어
+#    
+# 2. 자동 분류 (키워드 기반):
+#    사용자가 "인스타에 올릴 글 써줘" → content-writer 자동 호출
+#    
+# 3. 멀티 에이전트 협업:
+#    @코디네이터 책 초안 프로젝트 시작해줘
+#    → 여러 에이전트가 순차적으로 작업
+
+# === 바로 시작하기 ===
+# 오늘부터 사용 가능한 명령어들:
+#
+# 학습:
+# - "오늘 [카드 이름] 공부했어"
+# - "[[00-the-fool]]에 대해 설명해줘"
+#
+# 콘텐츠:
+# - "인스타용 바보 카드 글 써줘"
+# - "유튜브 대본: 소아르카나 입문"
+# - "스레드: 타로 처음 시작하는 법"
+#
+# 관리:
+# - "통계 보여줘" (78장 중 몇 % 완료?)
+# - "백업해줘"
+#
+# 책:
+# - "책 목차 제안해줘"
+# - "1장 초안 써줘"
+
+ready: true

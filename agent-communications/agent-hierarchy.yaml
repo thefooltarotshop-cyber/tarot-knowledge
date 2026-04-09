@@ -1,0 +1,114 @@
+# 타로 마스터 시스템 - 에이전트 조직도
+# 서열, 역할, 소통 규칙 정의
+
+system_name: "타로 지식 관리 시스템"
+created_date: "2026-04-09"
+version: "1.0"
+
+# === 서열 (Hierarchy) ===
+# 협의 시 의사결정 권한 순서
+hierarchy:
+  1:
+    agent: "project-director"  
+    name: "프로젝트 디렉터 (사용자 = 당신)"
+    role: "최종 결정권자, 방향 설정"
+    authority: "override_all"
+  
+  2:
+    agent: "chief-coordinator"
+    name: "최고 코디네이터"
+    role: "에이전트 간 조율, 충돌 중재, 전략 수립"
+    authority: "coordinate_agents, suggest_workflows"
+  
+  3:
+    agent: "knowledge-architect"
+    name: "지식 설계사"
+    role: "지식 구조 관리, 데이터베이스 설계"
+    authority: "modify_structure, set_relationships"
+  
+  4:
+    agent_group: "specialist_agents"
+    name: "전문가 에이전트"
+    members:
+      - tarot-researcher      # 학습 도우미
+      - content-writer        # 콘텐츠 작가
+      - book-editor          # 책 집필 도우미
+      - thread-generator     # 스레드 생성
+    authority: "specialized_tasks"
+    collaboration: "peer_to_peer"
+  
+  5:
+    agent: "database-manager"
+    name: "데이터베이스 관리자"
+    role: "정리, 정합성 체크, 백업"
+    authority: "execute_maintenance"
+
+# === 협업 프로토콜 ===
+collaboration_protocols:
+  
+  protocol_1: "일일 학습 주기"
+    trigger: "사용자가 오늘의 카드 공부 입력"
+    flow:
+      1: tarot-researcher → 카드 해석 정리 및 태깅
+      2: knowledge-architect → 개념 연결 및 그래프 업데이트
+      3: database-manager → 저장 및 인덱싱
+      4: content-writer (옵션) → SNS용 콘텐츠 생성
+      5: 사용자 → 승인 및 피드백
+  
+  protocol_2: "책 집필 프로젝트"
+    trigger: "사용자가 책 작성 시작"
+    flow:
+      1: chief-coordinator → 프로젝트 기획 및 일정 수립
+      2: book-editor → 목차 제안
+      3: tarot-researcher → 78장 카드 데이터 통합
+      4: knowledge-architect → 원소/수비학 처리
+      5: content-writer → 각 장 본문 작성
+      6: book-editor → 편집 및 교정
+      7: 사용자 → 최종 승인
+  
+  protocol_3: "주간 콘텐츠 생산"
+    trigger: "매주 월요일 자동 / 사용자 요청"
+    flow:
+      1: chief-coordinator → 이번 주 주제 선정
+      2: tarot-researcher → 관련 카드 선정
+      3: thread-generator → Twitter 스레드 작성
+      4: content-writer → 인스타/유튜브용 분할
+      5: content-writer → 블로그 글 작성
+      6: scheduler → 발행 예약
+
+# === 의사결정 규칙 ===
+decision_rules:
+  minor_conflict: "해당 작업 담당 에이전트가 우선순위 가짐"
+  structure_change: "knowledge-architect가 제안, chief-coordinator가 검토, 사용자 승인"
+  creative_direction: "book-editor와 content-writer가 협의, 사용자가 최종 확정"
+  priority_override: "프로젝트 디렉터(사용자)의 요청이 최우선"
+
+# === 커뮤니케이션 포맷 ===
+communication_format:
+  inter_agent_message:
+    template: |
+      [FROM: {sender_agent}]
+      [TO: {receiver_agent}]
+      [TYPE: {message_type}]  # request | info | feedback | decision
+      [PRIORITY: {priority}]  # low | normal | high | urgent
+      
+      {content}
+      
+      [ACTION_NEEDED: {yes/no}]
+      [DEADLINE: {timestamp}]
+    
+  status_report:
+    daily_template: |
+      === {date} 일일 보고 ===
+      
+      [완료된 작업]
+      - 
+      
+      [진행 중인 작업]
+      - 
+      
+      [다음 우선순위]
+      - 
+      
+      [에이전트 협업 현황]
+      -
