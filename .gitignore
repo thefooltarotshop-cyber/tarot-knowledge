@@ -1,0 +1,15 @@
+# Obsidian
+.obsidian/workspace*
+.obsidian/cache
+.trash/
+
+# API Keys
+.env
+*.key
+
+# Claude
+.claude/
+
+# OS
+.DS_Store
+Thumbs.db
